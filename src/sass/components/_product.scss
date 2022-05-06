@@ -1,0 +1,203 @@
+.product {
+    @include flex (flex-start, flex-start);
+
+    @include mobile {
+        flex-wrap: wrap;
+    }
+
+    &__image {
+        @include flex (flex-start, flex-start);
+        width: 60%;
+        flex-wrap: wrap;
+
+        @include tablet {
+            width: 80%;
+        }
+
+        @include mobile {
+            width: 100%;
+        }
+
+        &__list {
+            width: 20%;
+
+            
+
+            &__item {
+                cursor: pointer;
+            }
+        }
+
+        &__main {
+            flex-grow: 1;
+            padding-top: 100%;
+            position: relative;
+
+            
+
+            img {
+                position: absolute;
+                top: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                height: 100%;
+            }
+        }
+    }
+
+    &__info {
+        flex-grow: 1;
+        position: sticky;
+        top: $header-shrink-height;
+        padding-top: 2rem;
+
+        &__title {
+            font-size: 2.5rem;
+            font-weight: normal;
+        }
+
+        &__item {
+            margin-top: 2rem;
+
+            &__price {
+                color: $main-color;
+                font-size: 2rem;
+                font-weight: 600;
+            }
+
+            &__title {
+                font-size: 1.5rem;
+                font-weight: 600;
+                margin: 1rem 0;
+            }
+
+            &__list {
+                @include flex (center, flex-start);
+
+                &__item {
+                    @include flex(center, center);
+
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                    border: 2px solid $txt-second-color;
+                    margin-right: 1rem;
+
+                    @include mobile {
+                        width: 40px;
+                        height: 40px;
+                    }
+
+                    &:hover {
+                        border-color: $main-color;
+                        border-width: 3px;
+                    }
+
+                    &.active {
+                        border-color: $main-color;
+                        border-width: 3px;
+                    }
+
+                    .circle {
+                        width: 40px;
+                        height: 40px;
+                        border-radius: 50%;
+
+                        @include mobile {
+                            width: 30px;
+                            height: 30px;
+                        }
+                    }
+
+                    &__size {
+                        font-size: 1.5rem;
+                        text-transform: uppercase;
+                    }
+                }
+            }
+
+            &__quantity {
+                @include flex (center, flex-start);
+                height: 42px;
+
+                &__btn {
+                    height: 100%;
+                    padding: 0 1rem;
+                    font-size: 1.25rem;
+                    @include flex (center, center);
+                    border: 2px solid $txt-second-color;
+
+                    &:hover {
+                        border: 2px solid $main-color;
+                    }
+                    
+                }
+
+                &__input {
+                    height: 100%;
+                    padding: 0 2rem;
+                    @include flex (center, center);
+                    font-size: 1.25rem;
+                    border-top: 2px solid $txt-second-color;
+                    border-bottom: 2px solid $txt-second-color;
+                }
+            }
+
+            button {
+                margin-right: 1rem;
+                font-size: 13px;
+                margin-bottom: 1rem;
+            }
+        }
+    }
+}
+
+.product-description {
+    width: 100%;
+    padding: 2rem 2rem 3rem;
+    height: 400px;
+    overflow: hidden;
+    position: relative;
+    transition: height .5s ease;
+    
+    &.mobile {
+        display: none;
+
+        @include mobile {
+            display: block;
+            padding: 2.5rem .5rem;
+    
+        }
+
+    }
+
+    @include mobile {
+        display: none;
+
+    }
+
+    &.expand {
+        height: max-content;
+        transition: height .5s ease;
+    }
+
+    &__title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin: 2rem 0;
+    }
+
+    &__content {
+        font-size: 1.25rem;
+        line-height: 1.875rem;
+        text-align: justify;
+    }
+
+    &__btn {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 13px;
+    }
+}
